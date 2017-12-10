@@ -1,0 +1,25 @@
+.csun, .miami {
+    height: 37px;
+    flex-shrink: 1;
+    padding: 5px;
+}
+.mellon {
+    height: 67px;
+    flex-shrink: 1;
+    padding: 5px;		
+}
+.ucsb {
+    height: 47px;
+    flex-shrink: 1;
+    padding: 5px;		
+}
+.logos-container li > a {
+    border: 0;
+    text-decoration: none !important;
+}		
+.logos-container {
+    list-style-type: none;
+    display: flex;  
+    justify-content: flex-start;
+    flex-flow: row wrap;
+}
