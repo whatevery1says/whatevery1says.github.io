@@ -19,6 +19,7 @@
       .larger {font-size: larger !important;}
       .smaller {font-size: smaller !important;}
       .fa {cursor: pointer;}
+      .inline {font-size: smaller !important; padding: 0 5px !important; color: #DCDCDC; background: #1E1E1E; box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3);}
       .inline-fragment.visible.visible:not(.current-fragment) {
         display: none;
         height:0px;
@@ -27,7 +28,7 @@
     }          
   </style>
   <link rel="stylesheet" href="reveal.js/css/theme/we1s.css" id="theme">
-  <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">  
+  <link rel="stylesheet" href="reveal.js/lib/css/vs2015.css">  
   <!-- <link rel="stylesheet" href="assets/white.css" id="theme"> -->
   <!-- Printing and PDF exports -->
   <script>
@@ -66,7 +67,7 @@
 <h2>Advance Preparations</h2>
   <ul class="text-left">
     <li>Install a code editor. WE1S uses <a href="https://code.visualstudio.com/download">Visual Studio Code</a> as its standard editor.</li>
-    <li>Install the <code>markdownlint</code> extension for VS Code.</li>
+    <li>Install the <code class="inline">markdownlint</code> extension for VS Code.</li>
     <li><a href="https://github.com/join">Create a GitHub account</a> and let me know your username (starring the workshop repository does this).</li>
     <li>Install the <a href="https://desktop.github.com/">GitHub Desktop Client</a>.</li>
   </ul>
@@ -167,7 +168,7 @@
     <li><a href="https://ryver.com/" target="_blank">Ryver</a> (WE1S's team communication tool)</li>
     <li>Static website generators (e.g. <a href="https://jekyllrb.com/" target="_blank">Jekyll</a>)</li>
   </ul>
-  <p class="text-left">Increasingly, developers are producing tools that support Markdown (including <a href="https://revealjs.com/#/" target="_blank"><code>reveal.js</code></a>, which was used to produce this slideshow).</p>
+  <p class="text-left">Increasingly, developers are producing tools that support Markdown (including <a href="https://revealjs.com/#/" target="_blank"><code class="inline">reveal.js</code></a>, which was used to produce this slideshow).</p>
   <p class="text-left">People are also using Markdown for general writing because of its ease of use, because it enforces principles of simplicity and clarity, and because it is easy to convert to multiple formats.</p>
 </section>
 
@@ -190,7 +191,7 @@
 <section id="how-to-write-markdown" class="slide level1">
   <h2>How to Write Markdown</h2>
   <ul>
-    <li>Save your file as plain text. It is conventional to use the extension <code>.md</code>.</li>
+    <li>Save your file as plain text. It is conventional to use the extension <code class="inline">.md</code>.</li>
     <li>Any editor will do, but, as we'll see, a code editor has some advantages.</li>
     <li>When learning Markdown, it is helpful to use online editors like <a href="https://stackedit.io/app" target="_blank">StackEdit.io</a>.</li>
   </ul>
@@ -212,7 +213,7 @@
   <section id="holy-grail" class="slide level2">
     <h3>Quick Aside</h3>
       <p>A linter for bibliographical citation would be the Holy Grail.</p>
-      <p class="fragment"><code>#sigh</code></p>
+      <p class="fragment"><code class="inline">#sigh</code></p>
   </section>  
 </section>
 
@@ -250,7 +251,7 @@
     <h3>Using StackEdit</h3>
     <ol>
       <li>Go to <a href="https://stackedit.io/app" target="_blank">https://stackedit.io/app</a>.</li>
-      <li>Click the folder icon at the top left; then the file icon with the plus sign. Enter a name for your Markdown document and hit <code>Enter</code>.</li>
+      <li>Click the folder icon at the top left; then the file icon with the plus sign. Enter a name for your Markdown document and hit <code class="inline">Enter</code>.</li>
       <li>Erase the boilerplate and type your own content. Use the formatting toolbar to introduce formatting and observe the Markdown markup added, as well as how it is rendered in the HTML preview on the right.</li>
       <li>Use the <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" target="_blank">Markdown Cheat Sheet (https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)</a> to try adding other types of formatting not included in the toolbar.</li>
       <li>We won't be using StackEdit's file saving and export features in this workshop.</li>
@@ -280,9 +281,9 @@
     <h2>Quick Exercise</h2>
     <ul>
       <li>Launch VS Code and open a new file if necessary.</li>
-      <li>Click <strong>Plain Text</strong> at the bottom right corner of the screen. Type &ldquo;Markdown&rdquo; in the search field and select it. This will tell VS Code which language you are using. Saving the file as <code>myfile.md</code> will also switch the language to Markdown.</li>
+      <li>Click <strong>Plain Text</strong> at the bottom right corner of the screen. Type &ldquo;Markdown&rdquo; in the search field and select it. This will tell VS Code which language you are using. Saving the file as <code class="inline">myfile.md</code> will also switch the language to Markdown.</li>
       <li>Copy your StackEdit code into your file.</li>
-      <li>Press <code>Ctrl+Shift+V</code> to open a preview. in a new tab. You can view the preview side-by-side (<code>Ctrl+K V</code>) with the file you are editing and see changes reflected in real-time as you edit.</li>
+      <li>Press <code class="inline">Ctrl+Shift+V</code> to open a preview. in a new tab. You can view the preview side-by-side (<code class="inline">Ctrl+K V</code>) with the file you are editing and see changes reflected in real-time as you edit.</li>
   </section>
   <section id="using-the-linter" class="slide level2">
     <h2>Using the Linter</h2>
@@ -290,7 +291,7 @@
       <li>Do you see see squiggly green lines on the screen? Run your mouse over them to see a pop up of the error.</li>
       <li>If you do not see a light bulb, click a squiggly green line to make one appear. Click the lightbulb to see options. Click the options for more information on the error and how to fix it.</li>
     </ul>
-    <p class="text-left"><strong>Important:</strong> some errors indicate that your code is not well-formed according to the Markdown specification. Other errors are stylistic rules established by the author of the linter extension. The latter are subjective. If you want to turn off individual rules, there are instructions in the <a href="https://github.com/DavidAnson/markdownlint/tree/v0.6.3" target="_blank"><code>markdownlint</code> GitHub repo</a>.</p>
+    <p class="text-left"><strong>Important:</strong> some errors indicate that your code is not well-formed according to the Markdown specification. Other errors are stylistic rules established by the author of the linter extension. The latter are subjective. If you want to turn off individual rules, there are instructions in the <a href="https://github.com/DavidAnson/markdownlint/tree/v0.6.3" target="_blank"><code class="inline">markdownlint</code> GitHub repo</a>.</p>
   </section>
 </section>
 
@@ -309,12 +310,12 @@
   </section>
   <section id="hard-line-breaks" class="slide level2">
     <h3>Hard line breaks</h3>
-    <p class="text-left">A single line break is treated as a space. To force a line break, place two spaces or a &ldquo;<code>\</code>&rdquo; at the end of the line.</p>
+    <p class="text-left">A single line break is treated as a space. To force a line break, place two spaces or a &ldquo;<code class="inline">\</code>&rdquo; at the end of the line.</p>
     <p class="text-left">Try this in VS Code and see what the linting rule is.</p>
   </section>
   <section id="backslash-escapes" class="slide level2">
     <h3>Backslash Escapes</h3>
-    <p class="text-left">Try typing <code>**some text**</code> in VS Code. Notice that it renders as <strong>some text</strong> in the preview?</p>
+    <p class="text-left">Try typing <code class="inline">**some text**</code> in VS Code. Notice that it renders as <strong>some text</strong> in the preview?</p>
     <p class="text-left">But what if you <em>want</em> the asterisks?</p>
     <p class="text-left">For this you will need to &ldquo;escape&rdquo; them with backslashes. Type the following in VS Code:</p>
 <pre><code data-trim>
@@ -324,7 +325,7 @@
   </section>
   <section id="special-characters" class="slide level2">
     <h3>Special Characters</h3>
-    <p class="text-left">In HTML, entity representations like <code>&amp;thorn;</code> and <code>&amp;#0254;</code> can be used for special characters (both these examples produce <em>&#0254;</em>).</p>
+    <p class="text-left">In HTML, entity representations like <code class="inline">&amp;thorn;</code> and <code class="inline">&amp;#0254;</code> can be used for special characters (both these examples produce <em>&#0254;</em>).</p>
     <p class="text-left">All valid HTML entities are also valid in Markdown.</p>
   </section>
   <section id="tables" class="slide level2">
@@ -350,7 +351,7 @@
   <section id="extensions" class="slide level2">
     <h3>Extensions</h3>
     <p>Some implementations extend the standard. Two useful extensions used on GitHub are &ldquo;strikethrough&rdquo; and &ldquo;task lists&rdquo;.</p>
-    <p>Strikethrough is formatted with two tildes: <code>~~delete this~~</code> will render as <strong><del>delete this</del></strong>.</p>
+    <p>Strikethrough is formatted with two tildes: <code class="inline">~~delete this~~</code> will render as <strong><del>delete this</del></strong>.</p>
   </section>
   <section id="task-lists" class="slide level2">
     <h4>Task Lists</h4>
@@ -381,7 +382,7 @@
   &lt;a href="http://we1s.ucsb.edu" target="_blank"&gt;WE1S Website&lt;/a&gt;
 </code></pre>
     <p class="text-left">Be careful when using emphasis on links. Placing the formatting markup outside the brackets is well-formed:</p>
-<pre><code>_[My label](http://we1s.ucsb.edu)_</code></pre>
+<pre><code class="inline">_[My label](http://we1s.ucsb.edu)_</code></pre>
   </section>
   <section id="images" class="slide level2">
     <h3>Images</h3>
@@ -396,16 +397,16 @@
 <section id="introduction-to-github" class="slide level1">
     <section id="what-is-github" class="slide level2">
       <h3>What is GitHub?</h3>
-      <p><code>git</code> + cloud storage + social media = Octocat</p>
+      <p><code class="inline">git</code> + cloud storage + social media = Octocat</p>
       <img src="https://assets-cdn.github.com/images/modules/logos_page/Octocat.png" alt-text="GitHub Octocat Logo" height="50%" width="50%" align="center">
     </section>
     <section id="what-is-git" class="slide level2">
-        <h3>What is <code>git</code>?</h3>
+        <h3>What is <code class="inline">git</code>?</h3>
         <div class="fragment inline-fragment" data-fragment-index="1">
-          <p class="text-left"><code>Git</code> is a <strong>version control</strong> system for tracking changes in computer files and coordinating work on those files among multiple people. It is primarily used for source code management in software development, but it can be used to keep track of changes in any set of files.</p>
+          <p class="text-left"><code class="inline">Git</code> is a <strong>version control</strong> system for tracking changes in computer files and coordinating work on those files among multiple people. It is primarily used for source code management in software development, but it can be used to keep track of changes in any set of files.</p>
         </div>
         <div class="fragment inline-fragment" data-fragment-index="2">
-            <p class="text-left">From the <code>git</code> source code:</p>          
+            <p class="text-left">From the <code class="inline">git</code> source code:</p>          
 <pre><code data-trim>  
   The name "git" was given by Linus Torvalds when he wrote the very first version. He described the tool as "the stupid content tracker" and the name as (depending on your way):
   
@@ -421,20 +422,20 @@
       </div>
     </section>
     <section id="the-basic-idea-of-git" class="slide level2">
-      <h3>The Basic Idea of <code>git</code></h3>
+      <h3>The Basic Idea of <code class="inline">git</code></h3>
       <ul>
         <li>Your <strong>local</strong> workstation computer has folder that clones a <strong>repository</strong> (&ldquo;repo&rdquo;) on the server.</li>
         <li>You and your collaborators <strong>push</strong> new versions of your content from your local repository to the remote one after <strong>pulling</strong> the latest versions from the remote repository.</li>
-        <li><code>git</code> checks for conflicts in merging content pushed to the repository.</li>
-        <li><code>git</code> keeps a complete history of the repo, allowing you to roll it back to an earlier state.</li>      
+        <li><code class="inline">git</code> checks for conflicts in merging content pushed to the repository.</li>
+        <li><code class="inline">git</code> keeps a complete history of the repo, allowing you to roll it back to an earlier state.</li>      
       </ul>
-      <p class="text-left">GitHub's 15-minute <a href="https://try.github.io/levels/1/challenges/1" target="_blank">tryGit</a> tutorial teaches you the command line language but is <em>very</em> good for introducing you to the concepts of <code>git</code>.</p>    
+      <p class="text-left">GitHub's 15-minute <a href="https://try.github.io/levels/1/challenges/1" target="_blank">tryGit</a> tutorial teaches you the command line language but is <em>very</em> good for introducing you to the concepts of <code class="inline">git</code>.</p>    
     </section>
     <section id="githubs-implementation-of-git" class="slide level2">
-      <h3>GitHub's Implementation of <code>git</code></h3>
+      <h3>GitHub's Implementation of <code class="inline">git</code></h3>
       <ul>
         <li>The remote repository is stored using GitHub's cloud-based hosting service. Public repositories (which are free) can be cloned by anyone.</li>
-        <li>GitHub's website and desktop client allow you to perform functions using <code>git</code> without endtering commands in <code>git</code>'s archane language.</li>
+        <li>GitHub's website and desktop client allow you to perform functions using <code class="inline">git</code> without endtering commands in <code class="inline">git</code>'s archane language.</li>
         <li>GitHub's website allows you to associate social-media like features with a repository, such as a discussion forum (called &ldquo;Issues&rdquo;) and a wiki.</li>
       </ul>
     </section>
@@ -442,7 +443,7 @@
       <h3>Uses of GitHub</h3>
       <ul>
         <li>In less than ten years, GitHub has become the dominant platform for hosting open source code in many languages.</li>
-        <li>Although primarily used for programming languages, GitHub is increasingly used for document storage, where the writer wishes to take advantage of <code>git</code>'s version control features.</li>
+        <li>Although primarily used for programming languages, GitHub is increasingly used for document storage, where the writer wishes to take advantage of <code class="inline">git</code>'s version control features.</li>
         <li>GitHub has also implemented a service called GitHub pages, which allows you to host a website from a GitHub repository. This slideshow is hosted using GitHub pages.</li>
       </ul>
     </section>    
@@ -455,11 +456,11 @@
     <img src="https://github.com/whatevery1says/whatevery1says.github.io/raw/master/workshops/markdown-and-github/slideshow/images/github-tour-1.jpg" alt="GitHub Tour 1">
   </div>
   <div class="fragment inline-fragment" data-fragment-index="2">
-    <p class="text-left">Markdown (and some other) files are rendered as HTML. Click the <code>Raw</code> button to see the actual code.</p>
+    <p class="text-left">Markdown (and some other) files are rendered as HTML. Click the <code class="inline">Raw</code> button to see the actual code.</p>
     <img src="https://github.com/whatevery1says/whatevery1says.github.io/raw/master/workshops/markdown-and-github/slideshow/images/github-tour-2.jpg" alt="GitHub Tour 2">
   </div>
   <div class="fragment inline-fragment" data-fragment-index="3">
-    <p class="text-left">The raw code can be copied and pasted or saved with your browser's <code>Save As</code> function.</p>
+    <p class="text-left">The raw code can be copied and pasted or saved with your browser's <code class="inline">Save As</code> function.</p>
     <img src="https://github.com/whatevery1says/whatevery1says.github.io/raw/master/workshops/markdown-and-github/slideshow/images/github-tour-3.jpg" alt="GitHub Tour 3">
   </div>
   <div class="fragment inline-fragment" data-fragment-index="4">
@@ -484,16 +485,16 @@
     </ol>
   </section>
   <section id="the-readme.md-file" class="slide level2">
-    <h3>The <code>README.md</code> File</h3>
-    <p class="text-left">A repository typically has a Markdown file called <code>README.md</code> in its root folder. This file describes the content of the repository.</p>
-    <p class="text-left">On the GitHub website, the <code>README.md</code> file is automatically rendered on the repo's web page.</p>
+    <h3>The <code class="inline">README.md</code> File</h3>
+    <p class="text-left">A repository typically has a Markdown file called <code class="inline">README.md</code> in its root folder. This file describes the content of the repository.</p>
+    <p class="text-left">On the GitHub website, the <code class="inline">README.md</code> file is automatically rendered on the repo's web page.</p>
   </section>
   <section id="ways-to-interact-with-github" class="slide level2">
     <h3>Ways to Interact with GitHub</h3>
     <ul>
-      <li>Run <code>git</code> commands on the command line. You can do anything, but the <code>git</code> language is relatively unintuitive.</li>
-      <li>Use the GitHub website. You can perform many, although not all, <code>git</code> functions that modify the remote repo. You cannot push local changes to the server.</li>
-      <li>The GitHub Desktop Client. You can perform many, although not all, <code>git</code> functions, including pulling from and pushing to the remote repo.</li>
+      <li>Run <code class="inline">git</code> commands on the command line. You can do anything, but the <code class="inline">git</code> language is relatively unintuitive.</li>
+      <li>Use the GitHub website. You can perform many, although not all, <code class="inline">git</code> functions that modify the remote repo. You cannot push local changes to the server.</li>
+      <li>The GitHub Desktop Client. You can perform many, although not all, <code class="inline">git</code> functions, including pulling from and pushing to the remote repo.</li>
       <li>VS Code. Functions like the GitHub Desktop Client, but you can push and pull from the same environment where you are editing.</li>
     </ul>
   </section>
@@ -501,7 +502,7 @@
     <h3>Which method do I choose?</h3>
     <p class="text-left">Some combination is the most likely scenario. You can make small commits with GitHub's web editor, but you have to pull the changes to your local repo.</p>
     <p class="text-left">The GitHub Desktop Client is better than VS Code if you are creating or moving around folders, images, PDFs, and so on. VS Code is convenient of you are editing Markdown, HTML, or text files.</p>
-    <p class="text-left">Occasionally, you will encounter arcane conflicts which can only be solved by running <code>git</code> from the command line. It is generally necessary to Google solutions to find the appropriate code. Installing the GitHub client will automatically install <code>git</code> on your computer.</p>
+    <p class="text-left">Occasionally, you will encounter arcane conflicts which can only be solved by running <code class="inline">git</code> from the command line. It is generally necessary to Google solutions to find the appropriate code. Installing the GitHub client will automatically install <code class="inline">git</code> on your computer.</p>
   </section>
 </section>
 
@@ -509,10 +510,10 @@
   <h2>Setting up the GitHub Desktop Client</h2>
   <ol>
     <li>Launch the GitHub Desktop Client.</li>
-    <li>Select <code>File &gt; Options &gt; Accounts</code> and login.</li>
-    <li>Click the <code>Git</code> tab and enter the username and email you used for your GitHub account.</li>
-    <li>Click the <code>Advanced</code> tab and select VS Code as your external editor.</li>
-    <li>Create a folder called <code>GitHub</code> inside your <code>Documents</code> folder. In Windows, this will have the local path <code>C:\Users\YourName\Documents\GitHub</code>. On the Mac it will be <code>~/Documents/GitHub/</code>.</li>    
+    <li>Select <code class="inline">File &gt; Options &gt; Accounts</code> and login.</li>
+    <li>Click the <code class="inline">Git</code> tab and enter the username and email you used for your GitHub account.</li>
+    <li>Click the <code class="inline">Advanced</code> tab and select VS Code as your external editor.</li>
+    <li>Create a folder called <code class="inline">GitHub</code> inside your <code class="inline">Documents</code> folder. In Windows, this will have the local path <code class="inline">C:\Users\YourName\Documents\GitHub</code>. On the Mac it will be <code class="inline">~/Documents/GitHub/</code>.</li>    
   </ol>
 </section>
 
@@ -520,19 +521,19 @@
   <h2>Cloning a Repo</h2>
   <p class="text-left">There are two easy ways to clone a repo.</p>
   <ul>
-    <li>With the GitHub Desktop Client open, click the repo's <code>Clone or download</code> button on the GitHub website and select <code>Open in Desktop</code>.</li>
-    <li>Alternatively, copy the URL shown there. In the GitHub Desktop client, select <code>File > Clone repository > URL</code>. Enter the URL and the local path to your GitHub folder.</li>
+    <li>With the GitHub Desktop Client open, click the repo's <code class="inline">Clone or download</code> button on the GitHub website and select <code class="inline">Open in Desktop</code>.</li>
+    <li>Alternatively, copy the URL shown there. In the GitHub Desktop client, select <code class="inline">File > Clone repository > URL</code>. Enter the URL and the local path to your GitHub folder.</li>
   </ul>
-  <p class="text-left">Try this with the workshop sandbox repo: <code>https://github.com/whatevery1says/workshop-sandbox</code>.</p>
+  <p class="text-left">Try this with the workshop sandbox repo: <code class="inline">https://github.com/whatevery1says/workshop-sandbox</code>.</p>
 </section>
 
 <section id="committing-and-pushing-changes" class="slide level1">
     <h2>Committing and Pushing Changes</h2>
     <ul>
-      <li>Open the file <code>my_name.md</code> in VS Code.</li>
-      <li>Make the changes to the file indicated and save the file as <code>your_name.md</code>.</li>
-      <li>Open the GitHub Desktop Client. It should show that you have a new file in the Changes tab. In the Summary section, type a message like "Added your_name.md." Click <code>Commit to Master</code>.</li>
-      <li>Click the <code>Push Origin</code> tab at the top of the screen. Your file will be pushed to the remote repo.</li>
+      <li>Open the file <code class="inline">my_name.md</code> in VS Code.</li>
+      <li>Make the changes to the file indicated and save the file as <code class="inline">your_name.md</code>.</li>
+      <li>Open the GitHub Desktop Client. It should show that you have a new file in the Changes tab. In the Summary section, type a message like "Added your_name.md." Click <code class="inline">Commit to Master</code>.</li>
+      <li>Click the <code class="inline">Push Origin</code> tab at the top of the screen. Your file will be pushed to the remote repo.</li>
       <li>Refresh the webpage on GitHub, and your file should appear.</li>
     </ul>
   </section>
@@ -540,7 +541,7 @@
 <section id="committing-and-pushing-changes" class="slide level1">
   <h2>Pulling Changes</h2>
   <ul>
-    <li>In the GitHub Desktop Client, click the <code>Pull Origin</code> tab at the top of the screen to update your local repository folder with the latest changes.</li>
+    <li>In the GitHub Desktop Client, click the <code class="inline">Pull Origin</code> tab at the top of the screen to update your local repository folder with the latest changes.</li>
     <li><strong>Always pull the latest state of the repo before committing your own changes.</strong></li>
     <li>In VS Code, open the file belonging to the person next to you and add the line "Modified by Your Name". Save the file.</li>
     <li>Commit and push your change.</li>
@@ -550,7 +551,7 @@
 <section id="source-control-in-vs-code" class="slide level1">
   <h2>Source Control in VS Code</h2>
   <ul class="smaller">
-    <li>You can work with GitHub directly from VS Code using its Source Control Management features cryptically hidden in <code>View &gt; SCM</code>. You can also click the Source Control icon in VS Code's Activity Bar.</p>
+    <li>You can work with GitHub directly from VS Code using its Source Control Management features cryptically hidden in <code class="inline">View &gt; SCM</code>. You can also click the Source Control icon in VS Code's Activity Bar.</p>
     <li>VS Code will show a file hierarchy for each file you have open in one of your local repos.</p>
     <li>Changed files are marked with an "M" (modified). Mouse over the file name and click the Plus icon to stage them for a commit. When all files are staged, type a commit message and click the Check icon.</p>
     <li>Click the Three Dots icon to see all options, one of which will be Push.</p>
@@ -560,7 +561,7 @@
 
 <section id="merge-conflicts" class="slide level1">
     <h2>Merge Conflicts</h2>
-    <p class="text-left">Try the exercise in the file <code>resolving-merge-conflicts.md</code> in the workshop sandbox.</p>
+    <p class="text-left">Try the exercise in the file <code class="inline">resolving-merge-conflicts.md</code> in the workshop sandbox.</p>
 </section>
 
 <section id="branching-and-forking" class="slide level1">
@@ -602,7 +603,7 @@
   <h1>Manifests</h1>
   <blockquote>A manifest is a document describing the contents of a repository.</blockquote>
   <br>
-  <p>The GitHub <code>README.md</code> file is a type of manifest.</p>
+  <p>The GitHub <code class="inline">README.md</code> file is a type of manifest.</p>
 </section>
 
 <section id="introduction-to-manifests" class="slide level1">
@@ -629,22 +630,22 @@
   <section id="structure-of-a-data-package" class="slide level2">
     <h3>Structure of a Data Package</h3>
     <ul>
-      <li>The GitHub repo may contain a standard <code>README.md</code> file.</li>
-      <li>The GitHub repo MUST contain a JSON file called <code>datapackage.json</code>.</li>
-      <li>The <code>datapackage.json</code> file MUST contain <code>name</code>, <code>title</code>, and <code>resources</code> properties.</li>
+      <li>The GitHub repo may contain a standard <code class="inline">README.md</code> file.</li>
+      <li>The GitHub repo MUST contain a JSON file called <code class="inline">datapackage.json</code>.</li>
+      <li>The <code class="inline">datapackage.json</code> file MUST contain <code class="inline">name</code>, <code class="inline">title</code>, and <code class="inline">resources</code> properties.</li>
     </ul>
   </section>
   <section id="the-name-property" class="slide level2">
-    <h3>The <code>name</code> Property</h3>
-    <p class="text-left">The value of the name property should be a short url-usable (and preferably human-readable) name of the package. This MUST be lower-case and contain only alphanumeric characters along with &ldquo;<code>.</code>&rdquo;, &ldquo;<code>_</code>&rdquo; or &ldquo;<code>-</code>&rdquo; characters. It will function as a unique identifier and MUST be the same as name of its container folder.</p>
+    <h3>The <code class="inline">name</code> Property</h3>
+    <p class="text-left">The value of the name property should be a short url-usable (and preferably human-readable) name of the package. This MUST be lower-case and contain only alphanumeric characters along with &ldquo;<code class="inline">.</code>&rdquo;, &ldquo;<code class="inline">_</code>&rdquo; or &ldquo;<code class="inline">-</code>&rdquo; characters. It will function as a unique identifier and MUST be the same as name of its container folder.</p>
   </section>
   <section id="the-title-property" class="slide level2">
-    <h3>The <code>title</code> Property</h3>
+    <h3>The <code class="inline">title</code> Property</h3>
     <p>A title or one sentence description of the package.</p>
   </section>
   <section id="the-resources-property" class="slide level2">
-    <h3>The <code>resources</code> Property</h3>
-    <p class="text-left">A list of paths to all files associated with the data package. The list is enclosed in square brackets, and each resource is <code>"path"</code>-value pair enclosed in curly brackets.</p>
+    <h3>The <code class="inline">resources</code> Property</h3>
+    <p class="text-left">A list of paths to all files associated with the data package. The list is enclosed in square brackets, and each resource is <code class="inline">"path"</code>-value pair enclosed in curly brackets.</p>
   </section>
   <section id="sample-datapackage-manifest" class="slide level2">
     <h3>Sample Datapackage Manifest</h3>

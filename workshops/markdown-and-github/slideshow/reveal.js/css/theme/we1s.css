@@ -151,10 +151,11 @@ body {
   word-wrap: break-word;
   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3); }
 
-.reveal code {
-  font-family: monospace;
-  text-transform: none; }
-
+  .reveal code {
+    font-family: monospace;
+    text-transform: none;
+  }
+  
 .reveal pre code {
   display: block;
   padding: 5px;
