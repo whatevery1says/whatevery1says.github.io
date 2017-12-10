@@ -146,14 +146,27 @@
 			<script src="assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
             <script src="assets/js/main.js"></script>
+            <script src="assets/js/jquery.scrollTo.min.js"></script>
             
 			<script>
-                    $(document).ready(function() {
-                        $('#search').submit(function(e) {
-                            e.preventDefault();
-                            alert('Search functionality has not yet been enabled.');
-                        });
+                $(document).ready(function() {
+                    $('#search').submit(function(e) {
+                        e.preventDefault();
+                        alert('Search functionality has not yet been enabled.');
                     });
+                    // Handle scroll to top
+                    $(window).scroll(function(){ 
+                        if ($(this).scrollTop() > 100) { 
+                            $('#scroll').fadeIn(); 
+                        } else { 
+                            $('#scroll').fadeOut(); 
+                        } 
+                    }); 
+                    $('#scroll').click(function(){ 
+                        $("html, body").animate({ scrollTop: 0 }, 600); 
+                        return false; 
+                    });
+                });
             </script>    
-	</body>
+        </body>
 </html>

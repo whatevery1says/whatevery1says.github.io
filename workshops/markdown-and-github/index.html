@@ -22,6 +22,9 @@
 			<div id="wrapper">
 
 				<!-- Main -->
+				<!-- BackToTop Button -->
+				<a href="javascript:void(0);" id="scroll" title="Scroll to Top" style="display: none;">Top<span></span></a>
+								
 					<div id="main">
 						<div class="inner">
 
@@ -214,14 +217,27 @@
 			<script src="../../assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="../../assets/js/ie/respond.min.js"></script><![endif]-->
             <script src="../../assets/js/main.js"></script>
-            
+			<script src="../../assets/js/jquery.scrollTo.min.js"></script>
+
 			<script>
-                    $(document).ready(function() {
-                        $('#search').submit(function(e) {
-                            e.preventDefault();
-                            alert('Search functionality has not yet been enabled.');
-                        });
-                    });
-            </script>    
+					$(document).ready(function() {
+						$('#search').submit(function(e) {
+							e.preventDefault();
+							alert('Search functionality has not yet been enabled.');
+						});
+						// Handle scroll to top
+						$(window).scroll(function(){ 
+							if ($(this).scrollTop() > 100) { 
+								$('#scroll').fadeIn(); 
+							} else { 
+								$('#scroll').fadeOut(); 
+							} 
+						}); 
+						$('#scroll').click(function(){ 
+							$("html, body").animate({ scrollTop: 0 }, 600); 
+							return false; 
+						});
+					});
+				</script>    
 	</body>
 </html>
