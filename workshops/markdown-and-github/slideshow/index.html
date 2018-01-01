@@ -168,6 +168,7 @@
     <li>Documents and issues on GitHub</li>
     <li><a href="https://ryver.com/" target="_blank">Ryver</a> (WE1S&rsquo;s team communication tool)</li>
     <li>Static website generators (e.g. <a href="https://jekyllrb.com/" target="_blank">Jekyll</a>)</li>
+    <li><a href="http://jupyter.org/" target="_blank">Jupyter Notebooks</a></li>
   </ul>
   <p class="text-left">Increasingly, developers are producing tools that support Markdown (including <a href="https://revealjs.com/#/" target="_blank"><code class="inline">reveal.js</code></a>, which was used to produce this slideshow).</p>
   <p class="text-left">People are also using Markdown for general writing because of its ease of use, because it enforces principles of simplicity and clarity, and because it is easy to convert to multiple formats.</p>
@@ -176,16 +177,17 @@
 <section id="why-learn-markdown" class="slide level1">
   <section id="why-do-i-have-to-learn-markdown" class="slide level2">
     <h3>Why do I have to learn Markdown?</h3>
-    <blockquote>Can&rsquo;t I just use Word? I know how to use that.</blockquote>
-    <p class="fragment">Even if you know how to use Word <em>well</em>, do you?</p>
-    <p class="fragment">Do you really?</p>    
+    <p>Can&rsquo;t I just use Word? I know how to use that.</p>
+    <hr>
+    <p class="fragment"><em>Even if you know how to use Word <em>well</em>, do you?</em></p>
+    <p class="fragment"><em>Do you really?</em></p>    
   </section>
   <section id="problems-with-word" class="slide level2">
     <h3>Problems with Word</h3>
     <p class="text-left">Word hides its (proprietary) markup, which encourages users to be sloppy. As long as it looks all right, who cares?</p>
     <p class="text-left">Word&rsquo;s powerful features tempt users to violate the principles and best practices enforced by Markdown.</p>
     <p class="text-left">Word would be better if there were a tool to check documents against a schema that describes what a good document should look like. This process is known as &ldquo;validation&rdquo;.</p>
-    <p class="text-left fragment">There&rsquo;s a place for Word, but give Markdown a try, and you'll find yourself using Word less and less.</p>
+    <p class="text-left fragment">There are good reasons for using Word in some contexts, but give Markdown a try, and you'll find yourself using Word less and less.</p>
   </section>  
 </section>  
 
@@ -222,7 +224,7 @@
   <section id="problems-with-markdown" class="slide level2">
     <h3>Problems with Markdown</h3>
     <ul class="text-left">
-      <li>Does not support some really useful functions like external links and image sizing. For this, you need to fall back on HTML and CSS (that is, you need to know some HTML and CSS).</li>
+      <li>Markdown does not support some really useful functions like external links and image sizing. For this, you need to fall back on HTML and CSS (that is, you need to know some HTML and CSS).</li>
       <li>Because Markdown was not initially published as a standard, multiple dialects were developed. This leads to some inconsistency both in the format of Markdown documents and in how parsers render Markdown.</li>
     </ul>
   </section>
@@ -242,6 +244,7 @@
     <li><a href="https://pandoc.org/" target="_blank">Pandoc</a> (Swiss Army Knife for Document Conversion)</li>
     <li><a href="http://www.markdowntopdf.com/" target="_blank">Markdown To PDF</a> converter</li>
   </ul>
+  <p>More tools are available on the <a href="https://whatevery1says.github.io/workshops/markdown-and-github/#links">workshop website</a>.
 </section>
 
 <section id="markdown-practice-exercises" class="slide level1">
@@ -598,6 +601,39 @@
     <li>Requires an account from a corporate entity</li>
     <li>More complex than Google Docs, Dropbox, or other collaboration tools</li>
   </ul>
+</section>
+
+<section id="considerations-for-the-we1s-project" class="slide level1">
+  <section id="we1s-content-locations" class="slide level2">
+  <h1>Considerations for the WE1S Project</h1>
+    <p class="text-left">WE1S produces content in the following locations:</p>
+    <ul>
+      <li>Pages on the WE1S website</li>
+      <li>Blog posts on the WE1S website</li>
+      <li>Archived materials in the WE1S GitHub repo</li>
+    </ul>
+  </section>
+  <section id="markdown-first-principle" class="slide level2">
+    <h3>Markdown First Principle</h3>
+    <p class="text-left">Wherever possible, content intended only for website pages and blog posts should be authored offline in Markdown and pasted into the Wordpress text editor (click on the <strong>Text</strong> tab).</p>
+    <p class="text-left">The WE1S website uses the Wordpress Jetpack plugin, which automatically converts Markdown to HTML but saves the original Markdown.</p>
+    <p class="text-left">Advantages:</p>
+    <ul>
+      <li>Encourages simple and consistent formatting across the website.</li>
+      <li>Makes it easy to extract content from Wordpress if it is ever needed for presentation on another platform.</li>
+    </ul>
+  </section>
+  <section id="duplicating-wordpress-content-on-github" class="slide level2">
+    <h3>Duplicating Wordpress Content on GitHub</h3>
+    <p class="text-left">Some content should be archived on GitHub. The best workflow is to push the content to GitHub, copy the Markdown from GitHub, and then paste it into the Wordpress text editor. Updates should be performed on GitHub first and the updated content pasted from there into Wordpress.</p>
+    <p class="text-left">Non-textual assets (e.g. images) should be archived on GitHub. The urls used to embed these assets in the web pages should point to the files archived on GitHub, not to the Wordpress media library. The reasoning is that GitHub is a more stable repositor than Wordpress' media library.</p>
+  </section>
+  <section id="archiving-content-on-github" class="slide level2">
+    <h3>Archiving Content on GitHub</h3>
+    <p class="text-left">In general, documents should be authored in Markdown, if possible, and then converted to other formats (e.g. Word or PDF).</p>
+    <p class="text-left">Documents meant to be readable on the GitHub website should be available in Markdown format. Duplicates in other formats can be stored in the same repo.</p>
+    <p class="text-left">More complex resources can be stored as a <strong>data package</strong> with a <strong>manifest</strong>.
+  </section>
 </section>
 
 <section id="manifests" class="slide level1">
