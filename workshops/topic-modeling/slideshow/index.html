@@ -8,6 +8,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
   <link rel="stylesheet" href="../../../assets/reveal.js/css/reveal.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
   <style type="text/css">
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -25,9 +26,62 @@
         height:0px;
         line-height: 0px;
         font-size: 0px;
-    }          
+    }
+.btn {
+    cursor: pointer;
+    padding: 14px 24px;
+    border: 0 none;
+    font-size: 1.1em;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border-radius: 10px;
+}
+
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+}
+ 
+.btn-primary {
+    background: #0099cc;
+    color: #ffffff;
+}
+ 
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    background: #33a6cc;
+}
+ 
+.btn-primary:active, .btn-primary.active {
+    background: #007299;
+    box-shadow: none;
+}
+.btn.outline {
+  background: none;
+  padding: 12px 22px;
+}
+.btn-primary.outline {
+  border: 2px solid #0099cc;
+  color: #0099cc;
+}
+.btn-primary.outline:hover, .btn-primary.outline:focus, .btn-primary.outline:active, .btn-primary.outline.active {
+  color: #33a6cc;
+  border-color: #33a6cc;
+}
+.btn-primary.outline:active, .btn-primary.outline.active {
+  border-color: #007299;
+  color: #007299;
+  box-shadow: none;
+}
+.btn-primary.outline:hover, .btn-primary.outline:focus, .btn-primary.outline:active, .btn-primary.outline.active {
+  color: #33a6cc;
+  border-color: #33a6cc;
+}
+.btn-primary.outline:active, .btn-primary.outline.active {
+  border-color: #007299;
+  color: #007299;
+  box-shadow: none;
+}        
   </style>
-  <link rel="stylesheet" href="../../../assets/reveal.js/css/theme/we1s.css" id="theme">
+  <link rel="stylesheet" href="../../../assets/reveal.js/css/theme/we1s2018.css" id="theme">
   <link rel="stylesheet" href="../../../assets/reveal.js/lib/css/vs2015.css">  
   <!-- <link rel="stylesheet" href="assets/white.css" id="theme"> -->
   <!-- Printing and PDF exports -->
@@ -46,7 +100,7 @@
   <div class="reveal">
     <div class="slides">
 <section>
-  <h3>An Introduction to Topic Modelling</h3>
+  <h1>An Introduction to Topic Modelling</h1>
 
   <p class="text-center"><img src="../assets/images/brain.jpg" alt-text="Word cloud of topic in model of Humanities patents" style="height:50%;width:50%;"></p>
 
@@ -58,27 +112,525 @@
   
 </section>
 
+<section id="we1s" class="slide level1">
+  <h2>About the WhatEvery1Says (WE1S) Project</h2>
+  <ul>
+    <li>An initiative of <a href="http://4humanities.org/">4humanities.org</a>.</li>
+    <li>Funded by the Andrew W. Mellon Foundation, will collaborators at UC Santa Barbara, California State University, Northridge, and the University of Miami.</li>
+    <li>Goals:<br>
+      <ul>
+        <li>Use Digital Humanities methods to study public (especially journalistic) discourse about the Humanities at large data scales.</li>
+        <li>Develop tools and guidelines to create an open, generalizable, and replicable methodology for doing topic modelling, which will make topic modelling easier to adopt for Humanities students and scholars.</li>
+      </ul>
+    </li>
+    <li>Website: <a href="http://we1s.ucsb.edu/">http://we1s.ucsb.edu/</a>.</li>
+  </ul>
+</section>
+
+<section id="what-is-topic-modelling" class="slide level1">
+  <section id="what-is-topic-modelling1" class="slide level2">
+    <h1>What is Topic Modelling?</h1>
+    <br>
+    <ul>
+      <li>A form of unsupervised machine learning used to identify categories of meaning in collections of texts.</li>
+      <li>Developed for information search and retrieval.</li>
+      <li>Increasingly employed by scholars of history and literature to model meaning in their texts.</li>
+    </ul>
+  </section>
+
+  <section id="what-is-topic-modelling2" class="slide level2">
+    <p class="text-left">Topic modelling begins with the insight that texts are constructed from building blocks called "topics".</p>
+    <p class="text-left">Topic modelling algorithms use information in the texts themselves to generate these topics.</p>
+    <p class="text-left">We can explore the results of this process in order to learn something about the texts that were used to create the model.</p>
+  </section>
+
+  <section id="camelot1" class="slide level2" data-transition="fade">
+    <p>A topic model can produce amazing, magical insights about your texts...</p>
+    <img src="images/camelota.png" alt="Image of castle" style="height: 125%; width: 110%;"></a>
+  </section>
+
+  <section id="camelot2" class="slide level2" data-transition="fade">
+    <img src="images/camelot0.png" alt="King Arthur: Camelot!" style="height: 125%; width: 125%;"></a>
+  </section>
+
+  <section id="camelot3" class="slide level2" data-transition="fade">
+    <img src="images/camelot1.png" alt="Sir Lancelot: Camelot!" style="height: 175%; width:175%;"></a>
+  </section>
+
+  <section id="camelot4" class="slide level2" data-transition="fade">
+    <img src="images/camelot2.png" alt="Sir Galahad: Camelot!" style="height: 175%; width:175%;"></a>
+  </section>
+
+  <section id="camelot5" class="slide level2" data-transition="fade">
+    <img src="images/camelot3.png" alt="Squire: It's only a model." style="height: 175%; width: 175%;"></a>
+  </section>  
+</section>
+
 <section id="workshop-plan" class="slide level1">
-  <h2>Workshop Plan</h2>
+  <h1>Workshop Plan</h1>
     <ol class="text-left">
-      <li class="fragment">Discuss principles for sustainable and shareable research.</li>
-      <li class="fragment">Introduce the use of Markdown and GitHub for following these principles.</li>
-      <li class="fragment">Set up and practice tools for working with Markdown and GitHub.</li>
-      <li class="fragment">Establish a common set of tools for the WE1S team.</li>
+      <li class="fragment">The text analysis workflow</li>
+      <li class="fragment">How topic modelling works</li>
+      <li class="fragment">What do you need to do topic modelling?</li>
+      <li class="fragment">Methodological and theoretical discussion</li>
+      <li class="fragment">Hands on practice (for those who want to stay)</li>
     </ol>
 </section>
 
-<section id="credits-page" class="slide level1">
-    <a href="https://whatevery1says.github.io/workshops/markdown-and-github/index.html"><img src="images/4humanities-imagemark-white.png" alt="4Humanities imagemark" style="border:0;"></a>
-    <h2>The End</h2>
-  <p>Slideshow produced by Scott Kleinman<br>for the <a href="https://we1s.ucsb.edu/" target="_blank">WhatEvery1Says Project</a>.</p>
+<section id="text-analysis-workflow" class="slide level1" data-transition="concave">
+  <section id="text-analysis-workflow-overview" class="slide level2">
+    <h1>The Text Analysis Workflow</h1>
+  </section>
+
+  <section id="what-is-text-analysis" class="slide level2">
+    <h2>What is Text Analysis?</h2>
+    <p>(my current definition)</p>
+    <br>
+    <p class="text-left">(Computationally) finding quantitative patterns in natural language samples and attributing meaning to these patterns.</p>
+  </section>
+
+  <section id="text-analysis-workflow-steps" class="slide level2">
+    <h2>Basic Workflow Steps</h2>
+      <ol>
+        <li>Pre-Processing (e.g. removal of punctuation, stopwords, etc.)</li>
+        <li>Statistical Processing (e.g. cluster analysis, topic modelling)</li>
+        <li>Visualisation (using charts or graphs to explore data)</li>
+        <li>Iterative Experimentation</li>   
+        <li>Constructing a Narrative of Meaning</li>
+      </ol>
+  </section>
+
+  <section id="deformance" class="slide level2">
+  <h2>Deformance</h2>
+    <p class="text-left">Pre-processing creates a “deformed” version of the original text for analysis.</p>
+    <p class="text-left">Statistical processing transforms the text from natural language to quantitative data. This type of “deformance” typically involves dimensionality reduction, a simplification of the data so that it can be represented in two-dimensional space.</p><br>
+    <p class="text-left smaller">See Samuels, Lisa, and Jerome McGann. “Deformance and Interpretation.” <em>New Literary History</em> 30.1 (1999) : 25–56.</p>
+  </section>
+
+  <section id="deformance" class="slide level2">
+    <h2>Narrative of Meaning</h2>
+    <p class="text-left">A “narrative of meaning” is an account of the significance of the results of text analysis.</p>
+    <p class="text-left">Such a narrative must include an account of the decisions made as part of pre-processing, statistical processing, and visualisation steps in the workflow.</p>
+  </section>
+
+  <section id="useful-terminology" class="slide level2">
+    <h2>Useful Terminology</h2>
+    <ul>
+      <li><strong>Document:</strong> a whole text or a segment of a text.</li>
+      <li><strong>Token:</strong> an individual occurrence of a countable item in a document (typically a word).</li>
+      <li><strong>Term (also <em>Type</em>):</strong> A distinct form of a token that may occur one or more times in a document.</li>
+      <li><strong>Bag of Words:</strong> Set of tokens or terms lacking their order or placement in the original source text(s).</li>
+      <li><strong>Document-Term Matrix (DTM):</strong> A table showing the number of times each term occurs in each document.</li>
+    </ul>
+  </section>
+
+  <section id="sample-workflow-with-lexos" class="slide level2">
+    <h2>Sample Workflow Using <em>Lexos</em></h2>
+    <br>
+      <button class="btn btn-primary outline" id="launch-lexos">
+        <i class="fa fa-rocket"></i> Launch Lexos
+      </button>
+  </section>
+
 </section>
+
+<section id="a-conceptual-overview-of-topic-modelling" class="slide level1">
+
+  <section id="how-topic-modelling-works" class="slide level2">
+    <h1>How Topic Modelling Works</h1>
+  </section>
+
+  <section id="purpose-of-topic-modelling" class="slide level2">
+    <h2>The Purpose of Topic Modelling</h2>
+    <p class="text-left smaller">Topic modelling attempts to map out the semantic categories that make up a collection of documents.</p>
+    <img src="images/literature.png" alt-text="Literature Mind Map" style="max-width: 75%; max-height: 75%;"><br>
+    Source: <a href="https://imindmap.com/gallery/" target="_blank">iMindMap</a>
+  </section>
+
+  <section id="what-is-a-topic" class="slide level2">
+    <h2>What is a Topic?</h2>
+    <p class="text-left"><strong>Formal definition:</strong> A probability distribution over terms.</p>
+    <p class="text-left"><strong>Informal definition:</strong> Some potentially meaningful category onto which we can map the terms and documents in our collection.</p>
+    <p class="text-left"><strong>Working definition:</strong> A list of terms (usually words) from your document collection, each of which has a certain probability of occurring with the other terms in the list.</p>
+  </section>
+
+  <section id="where-do-topics-come-from" class="slide level2">
+    <h3>Where do topics come from?</h3>
+    <p class="text-center"><img src="images/stork.jpg" alt-text="Stork carrying bag of words" style=""><br>
+      Source: <a href="https://clipartxtras.com/" target="_blank">clipartxtras.com</a></p>
+  </section>
+
+  <section id="traditional-v-algorithmic-methods" class="slide level2">
+    <h2>Traditional v. Algorithmic Methods</h2>
+    <p class="text-left">Traditional methods relay on our contextual knowledge of the documents to identify something like topics.</p>
+    <p class="text-left">Algorithmic approaches use only the information contained within the documents themselves to identify topics.*</p>
+    <br>
+    <p class="text-left smaller">* But they are typically tuned by human decisions which require some prior assumptions and disciplinary understanding of the material.</p>
+  </section>
+
+  <section id="topic-modelling-is-generative" class="slide level2">
+    <h2>Topic Modelling is a Generative Approach</h2>
+    <p class="text-left">It uses an algorithm to <strong>generate</strong> the topics by examining the tendency of individual terms to occur together in the same documents.</p>
+    <p class="text-left">In other words, topics are inferred from the documents themselves.</p>
+    <p class="text-left">One of the most popular algorithms is Latent Dirichlet Allocation (LDA).</p>
+  </section>
+
+  <section id="assumptions" class="slide level2">
+    <h2>Assumptions</h2>
+    <ol>
+      <li>All documents are constructed out of some finite set of topics.</li>
+      <li>We do not know what these topics are.</li>
+      <li>We can reverse engineer at least some of the topics from whatever limited number documents available to us.</li>
+    </ol>
+  </section>
+
+  <section id="process" class="slide level2">
+    <h3>Process</h3>
+    <ol>
+      <li>Start by choosing a number of topics to examine.</li>
+      <li>Use this number to randomly assign the vocabulary in our documents to bags of words.</li>
+      <li>Make this assignment less random by moving words into different bags according to (a) how much of the vocabulary currently in each bag is represented in the document and (b) which bag has the word most prominently represented.</li>
+      <li>Repeat this process until we are satisfied that the vocabulary in each bag belongs together.</li>
+    </ol>
+    <p class="text-left"><em>Voil&agrave;</em>! Each bag of words is a “topic”.</p>
+  </section>
+
+  <section id="learning-more" class="slide level2">
+    <h2>Learning More about LDA</h2>
+    <p class="text-left smaller">Matthew Jockers, <a href="http://www.matthewjockers.net/2011/09/29/the-lda-buffet-is-now-open-or-latent-dirichlet-allocation-for-english-majors/" target="_blank">“The LDA Buffet is Now Open; or, Latent Dirichlet Allocation for English Majors”</a></p>
+    <p class="text-left smaller">Ted Underwood, <a href="https://tedunderwood.com/2012/04/07/topic-modeling-made-just-simple-enough/" target="_blank">“Topic modeling made just simple enough”</a></p>
+    <p class="text-left smaller">Follow the links in Scott Weingart, <a href="http://www.scottbot.net/HIAL/index.html@p=19113.html" target="_blank">“Topic Modeling for Humanists: A Guided Tour”</a> (provides a gentle pathway into the statistical intricacies)</p>
+  </section>
+
+  <section id="underwood-topic-model-diagram" class="slide level2">
+    <h3>Ted Underwood&rsquo;s Diagram of a Topic Model</h3>
+    <img src="https://tedunderwood.files.wordpress.com/2012/04/shapeart.png" alt="Ted Underwood's diagram of a Topic Model">
+    <p class="smaller">Source: <a href="https://tedunderwood.com/2012/04/07/topic-modeling-made-just-simple-enough/" target="_blank">Ted Underwood, “Topic modeling made just simple enough”</a></p>
+<!--
+Suppose we knew which topic produced every word in the collection, except for an occurrence of the word "lead" in document "Heavy Metal Poisoning". How do we decide whether the word belongs in our bag words corresponding to heavy metals (it might be a verb)?
+
+We ask, "How often does 'lead' appear in occurrences of the heavy metals topic in other documents? If 'lead' can be found in this context, there is some probability that it might belong to the same topic here.
+
+We also ask, "How common is the heavy metals topic in the rest of this document?" That makes it more probable that this occurrence of the word "lead" belongs in the heavy metals topic, rather than, say, in a leadership topic.
+
+To answer these questions, we multiply the frequency of "lead" in the heavy metals topic by the number of other words in the document already assigned to the heavy metals topic (this can be done randomly to start the process). This gives the probability that the word "lead" belongs to the topic. We can supply additional conditions known as "hyperparameters" to keep open the possibility that all words have some chance of belonging to the topic. 
+
+We now go through the collection, word by word, and reassign each word to a topic, guided by this calculation. As we do that, a) words will gradually become more common in topics where they are already common. And also, b) topics will become more common in documents where they are already common. Thus our model will gradually become more consistent as topics focus on specific words and documents.
+-->
+  </section>
+
+<!--   <section id="blei-topic-model-diagram" class="slide level2">
+    <h3>David Blei's Diagram of a Topic Model</h3>
+    <img src="images/blei.png" alt="David Blei's diagram of a Topic Model" style="height: 75%; width: 75%;">
+    <p class="text-left smaller">Source: David Blei, "Probabilistic Topic Models", <em>Communications of the ACM</em> 55:4 (2012)</p>
+  </section> -->
+
+
+
+  <section id="humanities-patents" class="slide level2">
+    <h2 class="smaller">Topic Model of US Humanities Patents</h2>
+    <table style="font-size:16px;width:100%;">
+    <tbody><tr><th width="60">Topic</th><th>Prominence</th><th>Keywords</th>
+    </tr>
+    </tbody></table>
+    <div style="height:500px;overflow:auto;">
+    <table style="font-size:16px;">
+    <tbody><tr><td width="60">0</td><td>0.05337</td><td>atlanta buck sherman coffee lil city soldiers union donaldson war opera music men dance wrote vamp</td></tr>
+    <tr><td>1</td><td>0.03937</td><td>chinese singapore quantum scientific china percent han evidence xinjiang physics bjork language study ethnic test culture pretest memory miksic</td></tr>
+    <tr><td>2</td><td>0.06374</td><td>dr medical pain osteopathic medicine brain patients doctors creativity care health smithsonian touro patient benson cancer physician skorton physicians</td></tr>
+    <tr><td>3</td><td>0.12499</td><td>book poetry books literary writer writers american literature fiction writing poet author freud english novels culture published review true</td></tr>
+    <tr><td>4</td><td>0.14779</td><td>museum art mr ms arts museums artist center artists music hong kong contemporary works director china painting local institute</td></tr>
+    <tr><td>5</td><td>0.0484</td><td>love robinson mr godzilla slater gorman movie mother lila literature read sachs happy taught asked writing house child lived</td></tr>
+    <tr><td>6</td><td>0.03013</td><td>oct org street nov center museum art gallery sundays saturdays theater free road noon arts connecticut tuesdays avenue university</td></tr>
+    <tr><td>7</td><td>0.09138</td><td>johnson rights editor mr wilson poverty civil war vietnam kristof president writer jan ants hope human bill lyndon presidents</td></tr>
+    <tr><td>8</td><td>0.18166</td><td>technology computer business ms tech engineering jobs mr women people science percent ireland work skills companies fields number company</td></tr>
+    <tr><td>9</td><td>0.08085</td><td>israel women police violence black gender war church poland white northern officers country trial racism rights civil justice rice</td></tr>
+    <tr><td>10</td><td>0.94475</td><td>advertisement people time years work make life world year young part day made place back great good times things</td></tr>
+    <tr><td>11</td><td>0.08681</td><td>mr chief smith russian vista company russia financial times equity dealbook million reports street private berggruen york bank executive</td></tr>
+    <tr><td>12</td><td>0.1135</td><td>street york show free sunday children saturday theater city monday tour friday martin center members students manhattan village west</td></tr>
+    <tr><td>13</td><td>0.17297</td><td>times video photo community commencement article york lesson credit read tumblr online students blog digital college plan twitter news</td></tr>
+    <tr><td>14</td><td>0.4395</td><td>university american research mr studies international faculty state center work dr director arts universities academic bard advertisement education history</td></tr>
+    <tr><td>15</td><td>0.55649</td><td>people human world professor science humanities time knowledge life questions study learn social find ways change thinking problem don</td></tr>
+    <tr><td>16</td><td>0.10946</td><td>mr ms professor marriage york wrote degree newark mondale mother born received father school aboulela ajami price married home</td></tr>
+    <tr><td>17</td><td>0.3896</td><td>years government mr president report programs public american humanities state ms year million information board budget today left private</td></tr>
+    <tr><td>18</td><td>0.07622</td><td>religion religious buddhist faith philosophy traditions god derrida philosophers life beliefs hope buddhism jesus doctrine stone deconstruction theology lives</td></tr>
+    <tr><td>19</td><td>0.31793</td><td>students school education college schools student teachers teaching graduate year harvard percent colleges class high graduates job learning universities</td></tr>
+    </tbody></table>
+    </div>
+    <p class="text-left" style="font-size: 14px;">Topic model data courtesy of Alan Liu.</p>
+  </section>
+
+  <section id="what-do-topic-models-tell-us" class="slide level2">
+    <h2>What do Topic Models Tell Us?</h2>
+    <ul>
+      <li>The topics present in the collection.</li>
+      <li>The prominence of individual topics in the collection.</li>
+      <li>The prominence of individual terms in each topic.</li>
+      <li>The prominence of each topic in each document in the collection.</li>
+      <li>The most prominent documents associated with each topic.</li>
+    </ul>
+  </section>
+
+  <section id="future-csun" class="slide level2">
+    <h4>The results of topic modelling often combine the familiar with the surprising.</h4>
+    <img src="images/CSUN_Final_Frontier.jpg" alt-text="CSUN outside the Oviatt Library with spaceship" style="">
+  </section>
+
+  <section id="examples" class="slide level2">
+    <h3>Examples of Topic Modelling</h3>
+    <ul>
+      <li><a href="http://dsl.richmond.edu/dispatch/Topics/view/1" target="_blank">Robert Nelson, Mining the <em>Dispatch</em></a></li>
+      <li><a href="http://www.matthewjockers.net/macroanalysisbook/" target="_blank">Matthew Jockers, <em>Macroanalysis</em></a></li>
+      <li><a href="http://jgoodwin.net/htb/" target="_blank">Jonathan Goodwin, HathiTrust Fiction (1920-1922)</a></li>
+    </ul>
+  </section>
+</section>
+
+<section id="how-to" class="slide level1">
+  <section id="what-do-you need" class="slide level2">
+    <h1>What do you need<br>to do topic modelling?</h1>
+  </section>  
+
+  <section id="implementations" class="slide level2">
+    <h2>Implementations</h2>
+    <p class="text-left">The most popular implementation used by digital humanists is MALLET (written in Java).</p>
+    <p class="text-left">You can run MALLET as a desktop app with the GUI Topic Modeling tool. This is an especially useful for students.</p>
+    <p class="text-left">Good implementations are available for the Python and R programming languages (the Python <code>gensim</code> library is very accessible).</p>
+  </section>
+
+  <section id="gui-or-command-line" class="slide level2">
+    <h3 class="text-left">Why should I run MALLET from the command line instead of using the GUI Topic Modeling Tool?</h3>
+    <p class="text-left">You get the latest version.</p>
+    <p class="text-left">A few MALLET functions are not implemented in the GUI Topic Modeling Tool, such as <code>random-seed</code>, which ensures that topic models are reproducible.</p>
+   </section>
+
+  <section id="tutorials" class="slide level2">
+    <h2>Tutorials</h2>
+    <p class="text-left"><a href="https://programminghistorian.org/lessons/topic-modeling-and-mallet" target="_blank">The Programming Historian, “Getting Started with Topic Modeling and MALLET”</a></p>
+    <p class="text-left">DARIAH-DE, <a href="https://de.dariah.eu/tatom/index.html" target="_blank">Text Analysis with Topic Models for the Humanities and Social Sciences</a> (Python and MALLET)</p>
+    <p class="text-left"><a href="https://de.dariah.eu/tatom/topic_model_python.html">Beginners Guide to Topic Modeling in Python</a> (uses the Python <a href="https://radimrehurek.com/gensim/">gensim</a>)</p>
+    <p class="text-left"><a href="http://www.matthewjockers.net/text-analysis-with-r-for-students-of-literature/" target="_blank">Matthew Jockers, <em>Text Analysis with R for Students of Literature</em></a></p>
+  </section>
+
+  <section id="visualisation" class="slide level2">
+    <h3>Visualisation</h3>
+    <img src="images/Edvard_Munch_-_The_Scream_-_Google_Art_Project.jpg" alt="Edvard Munch [Public domain], The Scream" style="height:35%; width: 35%;">
+    <p class="smaller"><a href="https://commons.wikimedia.org/wiki/File:Edvard_Munch_-_The_Scream_-_Google_Art_Project.jpg">Edvard Munch, “The Scream” (via Wikimedia Commons)</a>.</p>
+  </section>
+
+  <section id="lexos-multicloud" class="slide level2">
+    <h2><em>Lexos</em> Multiclouds</h2>
+    <br>
+      <button class="btn btn-primary outline" id="launch-lexos-multicloud">
+        <i class="fa fa-rocket"></i> Launch <em>Lexos</em> Multicloud Tool
+      </button>
+  </section>
+
+  <section id="serendip" class="slide level2">
+    <h2>Serendip</h2>
+    <img src="https://raw.githubusercontent.com/whatevery1says/dev_resources/master/report-on-topic-modeling-interfaces/assets/serendip-3-aggregated-data.jpg" style="height:70%; width: 70%;">
+  </section>
+
+  <section id="we1s-workspace" class="slide level2">
+    <h2>Other Options</h2>
+    <p class="text-left">See the <a href="https://github.com/whatevery1says/dev_resources/blob/master/report-on-topic-modeling-interfaces/report-on-topic-modeling-interfaces.md" target="_blank">WhatEvery1Says Report on Topic Modeling Interfaces</a> for an overview of other methods of visualising topic models.</p>
+  </section>
+
+  <section id="we1s-workspace" class="slide level2">
+    <h2>The WhatEvery1Says Virtual Workspace<br>(Coming Soon)</h2>
+    <br>
+      <button class="btn btn-primary outline" id="mirrormask">
+        <i class="fa fa-rocket"></i> Launch the WE1S Virtual Workspace
+      </button>
+      <p class="smaller"><a href="http://mirrormask.english.ucsb.edu:10001/20170203_1553_Jan3Meeting/browser/#/model/list/frac">Sample</a></p>
+  </section>
+
+</section>
+
+<section id="methodological-discussion-overview" class="slide level1">
+  <section id="methodological-discussion" class="slide level2">
+    <h1>Methodological and Theoretical<br>Discussion</h1>
+  </section>
+
+  <section id="practical-questions" class="slide level2">
+    <h2>Practical Questions</h2>
+    <ul>
+      <li>How do we choose the number of topics and other options (AKA “priors” or “hyperparameters”) in constructing our model?</li>
+      <li>How do we evaluate the quality of our results?</li>
+    </ul>
+  </section>
+
+  <section id="what-do-topics-represent" class="slide level2">
+    <h2>What do Topics Represent?</h2>
+    <div class="text-left smaller">
+    <ul class="smaller">
+      <li>Subjects</li>
+      <li>Themes</li>
+      <li>Discourses</li>
+      <li>Meaningless junk</li>
+    </ul>
+    </div>
+    <p class="text-left smaller">Good topics are normally judged by the “semantic coherence” of their terms, but there is proven statistical heuristic for demonstrating this.</p>
+    <p class="text-left smaller">Typically, human intuition is used to label the topics (e.g. <strong>Religion and Deconstructionism:</strong> <code>religion religious buddhist faith philosophy traditions god derrida ...</code>).</p>
+    <p class="text-left smaller">Less semantically coherent topics can be the most interesting because they bring together terms human users might not relate.</p>
+    <p class="text-left smaller">Junk topics can be ignored, but a “good” topic model will have a relatively low percentage of junk topics.</p>
+  </section>
+
+  <section id="model-v-reality" class="slide level2">
+    <h3>How closely does the model correspond to “reality”?</h3>
+    <p class="text-left smaller">If each stage is a transformation (“deformance”) of the source text, how do we relate the results of this transformation to the original?</p>
+    <p class="text-left smaller">How does the size and nature of our data affect the results of topic modelling?</p>
+    <p class="text-left smaller">What human decisions influence the construction of the model?</p>
+  </section>
+
+  <section id="other-issues" class="slide level2">
+    <h2>Other thoughts or questions?</h2>
+  </section>
+
+</section>
+
+<section id="hands-on-overview" class="slide level1">
+
+  <section id="hands-on-workshop" class="slide level2">
+    <h1>Hands-On Workshop</h1>
+  </section>
+
+  <section id="tools" class="slide level2">
+    <h2>Tools</h2>
+    <ul>
+      <li>The GUI Topic Modeling Tool (Download at <a href="https://bit.ly/2v1XRMZ" target="_blank">https://bit.ly/2v1XRMZ</a>)</li>
+      <li><em>Lexos</em> Multiclouds</li>
+      <li>MALLET from the command line (if we have time)</li>
+    </ul>
+  </section>
+
+  <section id="installing-the-gui-tool" class="slide level2">
+    <h2>Installing the GUI Topic Modeling Tool</h2>
+    <table>
+        <thead>
+            <th>Mac</th>
+            <th>Windows</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="smaller">
+                  1. Download <code>TopicModelingTool.dmg</code>.<br>
+                  2. Open it by double-clicking.<br>
+                  3. Drag the app into your Applications folder – or into any folder at all.<br>
+                  4. Run the app by double-clicking.
+                </td>
+                <td class="smaller">
+                  1. Download <code>TopicModelingTool.zip</code>.<br>
+                  2. Extract the files into any folder.<br>
+                  3. Open the folder containing the files.<br>
+                  4. Double-click on the file called <code>TopicModelingTool.exe</code> to run it.
+                </td>
+            </tr>
+            </tbody>
+    </table>
+    <p class="text-left smaller">On the Mac, if you get an error saying that the file is from an “unidentified developer”, press control while double-clicking. You will be given an option to run the file.</p>
+    <ol>
+      <li class="smaller">Set up your workspace by creating an <code>input</code> directory and an <code>output</code> directory. Dump your text collection in the former. All documents should be text files in the same directory.</li>
+      <li class="smaller">Launch the Topic Modeling Tool. Check out the <a href="https://senderle.github.io/topic-modeling-tool/documentation/2017/01/06/quickstart.html" target="_blank">Quickstart Guide</a> file for help using the tool.</li>
+  </ol>
+  </section>
+
+  <section id="create-a-project" class="slide level2">
+    <h2>Create a Project</h2>
+    <ol>
+      <li>Make a new project folder (call it something like <code>tm_project</code>).</li>
+      <li>Inside it, create a folder called <code>input</code> and a folder called <code>output</code>.</li>
+      <li>Drag your text collection into the <code>input</code> folder.</li>
+    </ol>
+    <p class="text-left"><strong>Important:</strong> All texts should be in plain text format, and all files should be at the same level. If you find yourself encountering problems with character encoding, read the advice in the <a href="https://senderle.github.io/topic-modeling-tool/documentation/2017/01/06/quickstart.html" target="_blank">Quickstart Guide</a>.
+    <p class="text-left"><strong>Need some data?</strong> There are some sample sets in the workshop sandbox: <a href="https://github.com/whatevery1says/workshop-sandbox/blob/master/Instructions.md" target="_blank">https://bit.ly/2Hfk3YP</a>.</p>
+  </section>
+
+  <section id="experiment1" class="slide level2">
+    <h2>First Steps</h2>
+    <ol>
+      <li>Launch the GUI Topic Modeling Tool if you have not done so already.</li>
+      <li>Select your input and output folders.</li>
+      <li>Click <code>Learn Topics</code>.</li>
+      <li>When the process is finished, go to your <code>output</code> folder and explore the contents. Look especially at the <code>output_html</code> folder and open <code>all_topics.html</code> in a browser.</li>
+    </ol>
+  </section>
+
+  <section id="experiment2" class="slide level2">
+    <h2>Setting Options</h2>
+    <ol>
+      <li>Inside your project folder, create a new folder called <code>output2</code>. In the GUI Topic Modeling Tool, set that as the new output folder.</li>
+      <li>Change the <code>Number of Topics</code> to “20”.</li>
+      <li>Click the <code>Optional settings...</code> button.</li>
+      <li>Click the <code>Preserve raw MALLET output</code> checkbox and change the number of topic words to print to “10”. Click <code>OK</code>.</li>
+      <li>Click <code>Learn Topics</code></li>
+      <li>When the process is finished, go to your <code>output2</code> folder and open <code>all_topics.html</code> in a browser. What differences are there?</li>
+    </ol>
+  </section>
+
+  <section id="experiment3" class="slide level2">
+    <h2>Visualising Models with <em>Lexos</em> Multiclouds</h2>
+    <ol>
+      <li>In your browser, go to <a href="http://lexos.wheatoncollege.edu/multicloud" target="_blank">http://lexos.wheatoncollege.edu/multicloud</a>.</li>
+      <li>Click the <code>Document Clouds</code> toggle so that it reads <code>Topic Clouds</code>.</li>
+      <li>Click the <code>Upload File</code> button. In your <code>output2</code> folder, find the file <code>words-topic-counts.txt</code> in the <code>output_malled</code> folder and select it.</li>
+      <li>Click <code>Get Graphs</code>. The multiclouds will take time to generate and your browser may freeze. Be patient.</li>
+      <li>Once the clouds are generated, you can drag and drop them into different orders to compare topics.</li>
+      <li>If you click <code>Convert topics to documents</code>, your topics will be converted into “texts” which you can explore with the other features of <em>Lexos</em> (e.g. cluster analysis).</li>
+      <li>Click the “In the Margins” tab on the left side of the screen for advice on how to save multiclouds.</li>
+    </ol>
+  </section>
+
+  <section id="experiment4" class="slide level2">
+    <h2>Using Stopwords</h2>
+    <ol>
+      <li>Download the <code>stopwords.txt</code> file from the workshop sandbox repository (<a href="https://github.com/whatevery1says/workshop-sandbox/blob/master/Instructions.md" target="_blank">https://bit.ly/2Hfk3YP</a>).</li>
+      <li>In your project folder, create a new folder called <code>output3</code>. In the GUI Topic Modeling Tool, set that as the new output folder.</li>
+      <li>Click the <code>Optional settings...</code> button.</li>
+      <li>Uncheck the <code>Remove default English stopwords</code>.</li>
+      <li>Click the <code>Stopword file...</code> button and select <code>stopwords.txt</code>. Click <code>OK</code>.</li>
+      <li>Click <code>Learn Topics</code></li>
+      <li>When the process is finished, go to your <code>output3</code> folder and open <code>all_topics.html</code> in a browser. What differences are there?</li>
+    </ol>
+  </section>
+
+  <section id="experiment5" class="slide level2">
+    <h2>Iterations and Hyperparameters</h2>
+    <ol>
+      <li>In your project folder, create a new folder called <code>output4</code>. In the GUI Topic Modeling Tool, set that as the new output folder.</li>
+      <li>Click the <code>Optional settings...</code> button and select the options you wish to use.</li>
+      <li>Set the number of iterations to more or less than “400”. Click <code>OK</code>.</li>
+      <li>Click <code>Learn Topics</code></li>
+      <li>When the process is finished, go to your <code>output4</code> folder and explore the differences.</li>
+      <li>You may wish to repeat the process by changing the <code>Interval between hyperprior optimizations</code> (also referred to as "hyperparameter optimization"). In short, this allows more general topics to be more prominent in the model. For a fuller explanation, see Christof Schöch's <a href="https://dragonfly.hypotheses.org/1051" target="_blank">“Topic Modeling with MALLET: Hyperparameter Optimization”</a>.</li>
+    </ol>
+  </section>
+
+  <section id="what-next" class="slide level2">
+    <h2>What Next?</h2>
+    <ul>
+      <li>Play with the <code>Metadata</code> tool as documented in the <a href="https://senderle.github.io/topic-modeling-tool/documentation/2017/01/06/quickstart.html" target="_blank">Quickstart Guide</a>.</li>
+      <li>Install the command line version of MALLET so that you can use the <code>--random-seed</code> command to get reproducible results.</li>
+      <li>Follow the DARIAH-DE <a href="https://de.dariah.eu/tatom/index.html" target="_blank">Text Analysis with Topic Models for the Humanities and Social Sciences</a> tutorial to combine topic modelling with other Python-based text analysis.</li>
+      <li>Experiment with Python's `gensim` library or R-based implementations of topic modelling.</li>
+    </ul>
+  </section>
+
+</section>
+
+  <section id="credits-page" class="slide level1">
+    <h1>The End</h1>
+    <p class="smaller">Slideshow produced by Scott Kleinman.</p>
+    <p class="smaller">Sponsored by <a href="https://we1s.ucsb.edu/" target="_blank">UC Irvine, Humanities Commons</a><br> and the <a href="https://we1s.ucsb.edu/" target="_blank">WhatEvery1Says Project</a>.</p>
+    <a href="http://www.humanities.uci.edu/commons/"><img src="https://whatevery1says.github.io/workshops/topic-modeling/assets/images/UCi14_HumanitiesCmmns_ctr2_blk.jpg" alt="UCI Humanities Commons Logo" style="border:0;"></a>
+    <a href="https://whatevery1says.github.io/workshops/topic-modeling/index.html"><img src="images/4humanities-imagemark-white.png" alt="4Humanities imagemark" style="border:0;height:11%;width:11%;"></a>
+  </section>
 </div>
 </div>
 
   <script src="../../../assets/reveal.js/lib/js/head.min.js"></script>
   <script src="../../../assets/reveal.js/js/reveal.js"></script>
-
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
   <script>
 
       // Full list of configuration options available at:
@@ -103,6 +655,20 @@
           Reveal.nextFragment();          
         }
       } );
+      $(document).ready(function() {
+        $('#launch-lexos').click(function() {
+          window.open('http://lexos.wheatoncollege.edu');
+          return false;
+        });
+        $('#launch-lexos-multicloud').click(function() {
+          window.open('http://lexos.wheatoncollege.edu/multicloud');
+          return false;
+        });
+        $('#mirrormask').click(function() {
+          window.open('http://mirrormask.english.ucsb.edu:9999/login?next=%2Ftree');
+          return false;
+        });
+      });
     </script>
     </body>
 </html>
