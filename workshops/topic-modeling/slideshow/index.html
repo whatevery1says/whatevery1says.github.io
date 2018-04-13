@@ -307,26 +307,7 @@
     <h3>Ted Underwood&rsquo;s Diagram of a Topic Model</h3>
     <img src="https://tedunderwood.files.wordpress.com/2012/04/shapeart.png" alt="Ted Underwood's diagram of a Topic Model">
     <p class="smaller">Source: <a href="https://tedunderwood.com/2012/04/07/topic-modeling-made-just-simple-enough/" target="_blank">Ted Underwood, “Topic modeling made just simple enough”</a></p>
-<!--
-Suppose we knew which topic produced every word in the collection, except for an occurrence of the word "lead" in document "Heavy Metal Poisoning". How do we decide whether the word belongs in our bag words corresponding to heavy metals (it might be a verb)?
-
-We ask, "How often does 'lead' appear in occurrences of the heavy metals topic in other documents? If 'lead' can be found in this context, there is some probability that it might belong to the same topic here.
-
-We also ask, "How common is the heavy metals topic in the rest of this document?" That makes it more probable that this occurrence of the word "lead" belongs in the heavy metals topic, rather than, say, in a leadership topic.
-
-To answer these questions, we multiply the frequency of "lead" in the heavy metals topic by the number of other words in the document already assigned to the heavy metals topic (this can be done randomly to start the process). This gives the probability that the word "lead" belongs to the topic. We can supply additional conditions known as "hyperparameters" to keep open the possibility that all words have some chance of belonging to the topic. 
-
-We now go through the collection, word by word, and reassign each word to a topic, guided by this calculation. As we do that, a) words will gradually become more common in topics where they are already common. And also, b) topics will become more common in documents where they are already common. Thus our model will gradually become more consistent as topics focus on specific words and documents.
--->
   </section>
-
-<!--   <section id="blei-topic-model-diagram" class="slide level2">
-    <h3>David Blei's Diagram of a Topic Model</h3>
-    <img src="images/blei.png" alt="David Blei's diagram of a Topic Model" style="height: 75%; width: 75%;">
-    <p class="text-left smaller">Source: David Blei, "Probabilistic Topic Models", <em>Communications of the ACM</em> 55:4 (2012)</p>
-  </section> -->
-
-
 
   <section id="humanities-patents" class="slide level2">
     <h2 class="smaller">Topic Model of US Humanities Patents</h2>
